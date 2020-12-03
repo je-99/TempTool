@@ -4,7 +4,7 @@ import 'antd/dist/antd.css'
 
 type StatCardProps = {
     title: string,
-    value: string
+    value: any
 }
 
 export const StatCard: FunctionComponent<StatCardProps> = ({title, value}: StatCardProps) =>
