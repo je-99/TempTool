@@ -12,7 +12,7 @@ def apiTemperature():
     temp = {
         "type": "temperature",
         "value": str(sense.temp),
-        "timestamp": datetime.datetime.now()
+        "timestamp": str(datetime.datetime.now())
     }
 
     return json.dumps(temp)
@@ -21,7 +21,7 @@ def apiPressure():
     temp = {
         "type": "pressure",
         "value": str(sense.pressure),
-        "timestamp": datetime.datetime.now()
+        "timestamp": str(datetime.datetime.now())
     }
 
     return json.dumps(temp)
@@ -30,7 +30,7 @@ def apiHumidity():
     temp = {
         "type": "humidity",
         "value": str(sense.humidity),
-        "timestamp": datetime.datetime.now()
+        "timestamp": str(datetime.datetime.now())
     }
 
     return json.dumps(temp)
@@ -40,7 +40,7 @@ def apiAll():
         "temperature": str(sense.temp),
         "humidity": str(sense.humidity),
         "pressure": str(sense.pressure),
-        "timestamp": datetime.datetime.now()
+        "timestamp": str(datetime.datetime.now())
     }
 
     return json.dumps(temp)
