@@ -1,0 +1,13 @@
+[Unit]
+Description=InfluxDB Service
+After=network-online.target
+
+[Service]
+Type=forking
+User=pi
+ExecStart=/home/pi/temptool/TempTool/influxdb/usr/bin/influxd
+WorkingDirectory=/home/pi/temptool/TempTool/influxdb/usr/bin
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
