@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, send_from_directory
 from flask import render_template
 from flask import request
 from sense_hat import SenseHat
