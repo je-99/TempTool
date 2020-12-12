@@ -1,7 +1,7 @@
 import React from 'react';
 import {Content} from "antd/es/layout/layout";
 import 'antd/dist/antd.css'
-
+import '../../App.css'
 
 
 export function Dashboard(){
@@ -13,8 +13,8 @@ export function Dashboard(){
     }
 
     return(
-    <Content>
-        <div className='grafana' dangerouslySetInnerHTML={iframe()}/>
+    <Content className='grafanaDashboard'>
+        <div className='grafanaDashboard' dangerouslySetInnerHTML={iframe()}/>
     </Content>
     )
 }

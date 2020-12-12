@@ -3,6 +3,12 @@
     width: auto;
 }
 
+.homeRow{
+    padding: 10px;
+    max-width: 1000px;
+    margin: auto;
+}
+
 .graphContainer{
     width: 100%;
     padding: 10px;

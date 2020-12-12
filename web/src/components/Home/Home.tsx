@@ -1,21 +1,24 @@
 import React, {useEffect, useState} from 'react';
 import {Content} from "antd/es/layout/layout";
-import {Col, Row, Card, Space} from "antd";
+import {Col, Row, Card, Space, Skeleton} from "antd";
 import 'antd/dist/antd.css'
 import './home.css'
 import '../../App.css'
 import {LoadingOutlined} from '@ant-design/icons'
 import {StatCard} from "../elements/StatCard";
+import { Typography } from 'antd';
 
 
 
 export function Home(){
 
+    const { Title } = Typography;
+
     const loadingIcon = <LoadingOutlined spin/>
 
-    const [temperature, setTemperature] = useState();
-    const [humidity, setHumidity] = useState();
-    const [pressure, setPressure] = useState();
+    const [temperature, setTemperature] = useState(<Skeleton title active paragraph={false}/>);
+    const [humidity, setHumidity] = useState(<Skeleton title active paragraph={false}/>);
+    const [pressure, setPressure] = useState(<Skeleton title active paragraph={false}/>);
     const [spin, setSpin] = useState();
 
     const iframeTemp = () => {
@@ -42,7 +45,7 @@ export function Home(){
             .then(
                 (result) => {
                     console.log(result)
-                    setTemperature(result.value)
+                    setTemperature(<Title level={2}>{result.value + " °C"}</Title>)
                 }
             );
         fetch("http://raspberrypi.fritz.box:5000/api/v1/humidity")
@@ -50,7 +53,7 @@ export function Home(){
             .then(
                 (result) => {
                     console.log(result)
-                    setHumidity(result.value)
+                    setHumidity(<Title level={2}>{result.value + " %"}</Title>)
                 }
             );
         fetch("http://raspberrypi.fritz.box:5000/api/v1/pressure")
@@ -58,14 +61,15 @@ export function Home(){
             .then(
                 (result) => {
                     console.log(result)
-                    setPressure(result.value)
+                    setPressure(<Title level={2}>{result.value + " hPa"}</Title>)
                 }
             );
     }, [])
 
     return(
     <Content className="appContent">
-        <Row style={{padding: 10}}>
+        <Title className="appHeading">Überblick</Title>
+        <Row className="homeRow">
             <Col span={8} style={{padding: 3}}>
                 <StatCard title="Aktuelle Temperatur" value={temperature}/>
             </Col>

@@ -2,3 +2,15 @@
   max-width: 2000px;
   margin: auto;
 }
+
+.appHeading{
+  padding: 10px;
+  padding-bottom: 0px;
+  margin-top: 0.5em;
+}
+
+.grafanaDashboard{
+  height: 100%;
+  width: 100%;
+  position: fixed;
+}
