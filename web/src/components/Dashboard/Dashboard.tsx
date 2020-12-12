@@ -1,0 +1,20 @@
+import React from 'react';
+import {Content} from "antd/es/layout/layout";
+import 'antd/dist/antd.css'
+
+
+
+export function Dashboard(){
+
+    const iframe = () => {
+        return {
+            __html: '<iframe src="http://raspberrypi.fritz.box:3000/d/uMYK1czRz/sensors?orgId=1&refresh=30s" height=100% width=100% frameborder="0"></iframe>'
+        }
+    }
+
+    return(
+    <Content>
+        <div className='grafana' dangerouslySetInnerHTML={iframe()}/>
+    </Content>
+    )
+}

@@ -1,0 +1,9 @@
+.grafana{
+    height: 350px;
+    width: auto;
+}
+
+.graphContainer{
+    width: 100%;
+    padding: 10px;
+}

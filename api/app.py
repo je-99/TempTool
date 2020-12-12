@@ -11,7 +11,7 @@ sense = SenseHat()
 def apiTemperature():
     temp = {
         "type": "temperature",
-        "value": str(sense.temp),
+        "value": str(round(sense.temp, 2)),
         "timestamp": str(datetime.datetime.now())
     }
 
@@ -20,7 +20,7 @@ def apiTemperature():
 def apiPressure():
     temp = {
         "type": "pressure",
-        "value": str(sense.pressure),
+        "value": str(round(sense.pressure, 2)),
         "timestamp": str(datetime.datetime.now())
     }
 
@@ -29,7 +29,7 @@ def apiPressure():
 def apiHumidity():
     temp = {
         "type": "humidity",
-        "value": str(sense.humidity),
+        "value": str(round(sense.humidity, 2)),
         "timestamp": str(datetime.datetime.now())
     }
 
