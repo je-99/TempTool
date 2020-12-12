@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {Home} from "./components/Home/Home";
 import {Header} from "antd/es/layout/layout";
 import {Menu} from "antd";
@@ -22,9 +22,9 @@ return (
         <Menu.Item key="3">Einstellungen</Menu.Item>
       </Menu>
     </Header>
-    {menuSelection == 1 && <Home/>}
-    {menuSelection == 2 && <Dashboard/>}
-    {menuSelection == 3 && <Home/>}
+    {menuSelection === 1 && <Home/>}
+    {menuSelection === 2 && <Dashboard/>}
+    {menuSelection === 3 && <Home/>}
     </div>
   );
 }

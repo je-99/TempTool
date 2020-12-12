@@ -4,7 +4,7 @@ from flask import request
 from sense_hat import SenseHat
 import datetime
 import json
-app = Flask(__name__)
+app = Flask(__name__, static_folder='./build', static_url_path='/')
 
 sense = SenseHat()
 
@@ -60,3 +60,7 @@ def routePressure():
 @app.route('/api/debug', methods=["GET"])
 def routeAll():
     return apiAll()
+
+@app.route('/')
+def reactApp():
+    retrun app.send_static_file('index.html')

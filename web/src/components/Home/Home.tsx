@@ -4,7 +4,6 @@ import {Col, Row, Card, Space, Skeleton} from "antd";
 import 'antd/dist/antd.css'
 import './home.css'
 import '../../App.css'
-import {LoadingOutlined} from '@ant-design/icons'
 import {StatCard} from "../elements/StatCard";
 import { Typography } from 'antd';
 
@@ -14,12 +13,9 @@ export function Home(){
 
     const { Title } = Typography;
 
-    const loadingIcon = <LoadingOutlined spin/>
-
     const [temperature, setTemperature] = useState(<Skeleton title active paragraph={false}/>);
     const [humidity, setHumidity] = useState(<Skeleton title active paragraph={false}/>);
     const [pressure, setPressure] = useState(<Skeleton title active paragraph={false}/>);
-    const [spin, setSpin] = useState();
 
     const iframeTemp = () => {
         return {
