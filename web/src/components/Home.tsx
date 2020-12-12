@@ -16,6 +16,24 @@ export function Home(){
     const [pressure, setPressure] = useState();
     const [spin, setSpin] = useState();
 
+    const iframeTemp = () => {
+        return {
+            __html: '<iframe src="http://raspberrypi.fritz.box:3000/d-solo/uMYK1czRz/sensors?orgId=1&refresh=30s&theme=light&panelId=2" height= 450 width=1000 frameborder="0"></iframe>'
+        }
+    }
+
+    const iframeHumi = () => {
+        return {
+            __html: '<iframe src="http://raspberrypi.fritz.box:3000/d-solo/uMYK1czRz/sensors?orgId=1&refresh=30s&theme=light&panelId=4" width="1000" height="450" frameborder="0"></iframe>'
+        }
+    }
+
+    const iframePres = () => {
+        return {
+            __html: '<iframe src="http://raspberrypi.fritz.box:3000/d-solo/uMYK1czRz/sensors?orgId=1&refresh=30s&theme=light&panelId=6" width="1000" height="450" frameborder="0"></iframe>'
+        }
+    }
+
     useEffect(() => {
         fetch("http://raspberrypi.fritz.box:5000/api/v1/temperature")
             .then(res => res.json())
@@ -57,6 +75,9 @@ export function Home(){
                         <StatCard title="Aktueller Luftdruck" value={pressure}/>
                     </Col>
                 </Row>
+                <div dangerouslySetInnerHTML={iframeTemp()}/>
+                <div dangerouslySetInnerHTML={iframeHumi()}/>
+                <div dangerouslySetInnerHTML={iframePres()}/>
             </Content>
         </Header>
     )
