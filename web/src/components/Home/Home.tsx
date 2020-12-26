@@ -64,7 +64,6 @@ export function Home(){
 
     return(
     <Content className="appContent">
-        <Title className="appHeading">Überblick</Title>
         <Row className="homeRow">
             <Col span={8} style={{padding: 3}}>
                 <StatCard title="Aktuelle Temperatur" value={temperature}/>

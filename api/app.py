@@ -5,7 +5,7 @@ from sense_hat import SenseHat
 import datetime
 import json
 import os
-app = Flask(__name__, static_folder='../build', static_url_path='/')
+app = Flask(__name__, static_folder='./build', static_url_path='/')
 
 sense = SenseHat()
 
@@ -63,14 +63,10 @@ def routeAll():
     return apiAll()
 
 # Serve React App
-# @app.route('/', defaults={'path': ''})
-# @app.route('/<path:path>')
-# def serve(path):
-#     if path != "" and os.path.exists(app.static_folder + '/' + path):
-#         return send_from_directory(app.static_folder, path)
-#     else:
-#         return send_from_directory(app.static_folder, 'index.html')
-
-@app.route
-def serve():
-    return render_template('index.html')
+ @app.route('/', defaults={'path': ''})
+ @app.route('/<path:path>')
+ def serve(path):
+     if path != "" and os.path.exists(app.static_folder + '/' + path):
+         return send_from_directory(app.static_folder, path)
+     else:
+         return send_from_directory(app.static_folder, 'index.html')

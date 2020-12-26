@@ -19,13 +19,11 @@ return (
       <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']} onSelect={handleClickMenu}>
         <Menu.Item key="1">Überblick</Menu.Item>
         <Menu.Item key="2">Dashboard</Menu.Item>
-        <Menu.Item key="3">Einstellungen</Menu.Item>
       </Menu>
     </Header>
-    {menuSelection === 1 && <Home/>}
-    {menuSelection === 2 && <Dashboard/>}
-    {menuSelection === 3 && <Home/>}
-    </div>
+    {menuSelection == 1 && <Home/>}
+    {menuSelection == 2 && <Dashboard/>}
+  </div>
   );
 }
 
