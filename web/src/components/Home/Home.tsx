@@ -17,26 +17,28 @@ export function Home(){
     const [humidity, setHumidity] = useState(<Skeleton title active paragraph={false}/>);
     const [pressure, setPressure] = useState(<Skeleton title active paragraph={false}/>);
 
+    const hostname = window.location.hostname;
+
     const iframeTemp = () => {
         return {
-            __html: '<iframe src="http://raspberrypi.fritz.box:3000/d-solo/uMYK1czRz/sensors?orgId=1&refresh=30s&theme=light&panelId=2" height=100% width=100% frameborder="0"></iframe>'
+            __html: '<iframe src="http://' + hostname + ':3000/d-solo/uMYK1czRz/sensors?orgId=1&refresh=30s&theme=light&panelId=2" height=100% width=100% frameborder="0"></iframe>'
         }
     }
 
     const iframeHumi = () => {
         return {
-            __html: '<iframe src="http://raspberrypi.fritz.box:3000/d-solo/uMYK1czRz/sensors?orgId=1&refresh=30s&theme=light&panelId=4" height=100% width=100% frameborder="0"></iframe>'
+            __html: '<iframe src="http://' + hostname + ':3000/d-solo/uMYK1czRz/sensors?orgId=1&refresh=30s&theme=light&panelId=4" height=100% width=100% frameborder="0"></iframe>'
         }
     }
 
     const iframePres = () => {
         return {
-            __html: '<iframe src="http://raspberrypi.fritz.box:3000/d-solo/uMYK1czRz/sensors?orgId=1&refresh=30s&theme=light&panelId=6" height=100% width=100% frameborder="0"></iframe>'
+            __html: '<iframe src="http://' + hostname + ':3000/d-solo/uMYK1czRz/sensors?orgId=1&refresh=30s&theme=light&panelId=6" height=100% width=100% frameborder="0"></iframe>'
         }
     }
 
     useEffect(() => {
-        fetch("http://raspberrypi.fritz.box:5000/api/v1/temperature")
+        fetch("http://' + hostname + ':5000/api/v1/temperature")
             .then(res => res.json())
             .then(
                 (result) => {
@@ -44,7 +46,7 @@ export function Home(){
                     setTemperature(<Title level={2}>{result.value + " °C"}</Title>)
                 }
             );
-        fetch("http://raspberrypi.fritz.box:5000/api/v1/humidity")
+        fetch("http://' + hostname + ':5000/api/v1/humidity")
             .then(res => res.json())
             .then(
                 (result) => {
@@ -52,7 +54,7 @@ export function Home(){
                     setHumidity(<Title level={2}>{result.value + " %"}</Title>)
                 }
             );
-        fetch("http://raspberrypi.fritz.box:5000/api/v1/pressure")
+        fetch("http://' + hostname + ':5000/api/v1/pressure")
             .then(res => res.json())
             .then(
                 (result) => {

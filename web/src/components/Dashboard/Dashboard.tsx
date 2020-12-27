@@ -6,9 +6,11 @@ import '../../App.css'
 
 export function Dashboard(){
 
+    const hostname = window.location.hostname;
+
     const iframe = () => {
         return {
-            __html: '<iframe src="http://raspberrypi.fritz.box:3000/d/uMYK1czRz/sensors?orgId=1&refresh=30s" height=100% width=100% frameborder="0"></iframe>'
+            __html: '<iframe src="http://' + hostname + ':3000/d/uMYK1czRz/sensors?orgId=1&refresh=30s" height=100% width=100% frameborder="0"></iframe>'
         }
     }
 
