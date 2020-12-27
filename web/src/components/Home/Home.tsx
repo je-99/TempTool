@@ -38,7 +38,7 @@ export function Home(){
     }
 
     useEffect(() => {
-        fetch("http://' + hostname + ':5000/api/v1/temperature")
+        fetch("http://" + hostname + ":5000/api/v1/temperature")
             .then(res => res.json())
             .then(
                 (result) => {
@@ -46,7 +46,7 @@ export function Home(){
                     setTemperature(<Title level={2}>{result.value + " °C"}</Title>)
                 }
             );
-        fetch("http://' + hostname + ':5000/api/v1/humidity")
+        fetch("http://" + hostname + ":5000/api/v1/humidity")
             .then(res => res.json())
             .then(
                 (result) => {
@@ -54,7 +54,7 @@ export function Home(){
                     setHumidity(<Title level={2}>{result.value + " %"}</Title>)
                 }
             );
-        fetch("http://' + hostname + ':5000/api/v1/pressure")
+        fetch("http://" + hostname + ":5000/api/v1/pressure")
             .then(res => res.json())
             .then(
                 (result) => {
