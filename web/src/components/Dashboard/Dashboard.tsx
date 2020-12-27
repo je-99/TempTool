@@ -4,7 +4,7 @@ import 'antd/dist/antd.css'
 import '../../App.css'
 
 
-export function Dashboard(){
+export function Dashboard(){ 
 
     const hostname = window.location.hostname;
 
